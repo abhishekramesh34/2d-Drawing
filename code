@@ -94,21 +94,17 @@ function draw(e) {
     ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
 }
 
-// Event Listeners
 canvas.addEventListener('mousedown', startPosition);
 canvas.addEventListener('mouseup', endPosition);
 canvas.addEventListener('mousemove', draw);
 
-// Update brush color and size
 colorPicker.addEventListener('input', (e) => brushColor = e.target.value);
 brushSize.addEventListener('input', (e) => brushWidth = e.target.value);
 
-// Clear Canvas
 clearCanvasBtn.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
-// Save Canvas as Image
 saveImageBtn.addEventListener('click', () => {
     const imageURI = canvas.toDataURL('image/png');
     const link = document.createElement('a');
